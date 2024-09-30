@@ -1,8 +1,6 @@
 package main
 
 import (
-	"context"
-	"internal/goos"
 	"log"
 	"net/http"
 	"os"
@@ -34,6 +32,7 @@ func main() {
 	r := gin.Default()
 
 	r.GET("library", handlers.GetLibrary)
+	r.GET()
 
 	port, exists := os.LookupEnv("SERVER_PORT")
 	if exists {
