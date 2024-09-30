@@ -31,12 +31,12 @@ func main() {
 
 	r := gin.Default()
 
-	r.GET("library", handlers.GetLibrary)
-	r.GET()
+	r.GET("/library", handlers.GetLibrary)
+	r.POST("/songs", handlers.AddSong)
+    r.DELETE("/songs/:id", handlers.DeleteSong)
+    r.GET("/songs/:id", handlers.GetSongById)
+    r.PUT("/songs/:id", handlers.UpdateSong)
 
-	port, exists := os.LookupEnv("SERVER_PORT")
-	if exists {
-		log.Printf("Listening on port %s", port)
-		http.ListenAndServe(":"+port, nil)
-	}
+    r.Run(":"+os.Getenv("PORT"))
+
 }
