@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -33,10 +32,10 @@ func main() {
 
 	r.GET("/library", handlers.GetLibrary)
 	r.POST("/songs", handlers.AddSong)
-    r.DELETE("/songs/:id", handlers.DeleteSong)
-    r.GET("/songs/:id", handlers.GetSongById)
-    r.PUT("/songs/:id", handlers.UpdateSong)
+	r.DELETE("/songs/:id", handlers.DeleteSong)
+	r.GET("/songs/:id", handlers.GetSongById)
+	r.PUT("/songs/:id", handlers.UpdateSong)
 
-    r.Run(":"+os.Getenv("PORT"))
+	r.Run(":" + os.Getenv("PORT"))
 
 }
